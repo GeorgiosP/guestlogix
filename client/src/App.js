@@ -5,8 +5,7 @@ import "./App.css";
 class App extends Component {
   state = {
     sheet: {},
-    rowCount: "",
-    columnCount: ""
+    sheetData: {}
   };
 
   componentWillMount() {
@@ -23,14 +22,22 @@ class App extends Component {
       });
   };
   componentDidUpdate() {
+    const SPREADSHEET_ID = "1YXYqO1KTEPImoREg69Ln6vh1uI_jg83FmKQ1puulUOc";
+    const API_URL = "https://sheets.googleapis.com/v4/spreadsheets";
+    const API_KEY = "AIzaSyC2qA2hiYKbgdClhoiznyT0aI-F1TDTeMM";
     const data = this.state.sheet.data;
     let rowsAndColumn = {}
-    data.sheets.map(sheet =>{
-      rowsAndColumn = sheet.properties.gridProperties
+    let sheetTitle = {}
+    data.sheets.map((sheet) =>{
+      console.log(sheet)
+      rowsAndColumn = sheet.properties.gridProperties.rowCount
+      sheetTitle = sheet.properties.title
     }
    
     )
-    console.log(rowsAndColumn)
+    fetch(API_URL + "/" + SPREADSHEET_ID + "/" + "values/"+ sheetTitle +"!A1:H"+ rowsAndColumn +"/" + "?key=" + API_KEY)
+    .then(res => res.json())
+    .then(data=>console.log(data))
   }
   render() {
     return (
