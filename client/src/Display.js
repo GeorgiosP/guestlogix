@@ -10,12 +10,10 @@ state = {
 
   componentDidMount() {
 
-       
+       this.getData()
     
   }
-  componentWillUnmount(){
-    
-  }
+
 
   getData = () => {
     const SPREADSHEET_ID = "1YXYqO1KTEPImoREg69Ln6vh1uI_jg83FmKQ1puulUOc";

@@ -4,9 +4,6 @@ import loadingIcon from '../../assets/images/loading.gif'
 
 class GridComponent extends Component {
 
-componentDidUpdate(){
-
-}
   render() {
 
 //    if(loading){
