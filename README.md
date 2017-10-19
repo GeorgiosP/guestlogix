@@ -9,7 +9,6 @@
 <p>
 Great Code Challenge, would have liked to put in more time to
 refactor some messy code since it was hacked together pretty quickly
-would have liked to have added in healper and proper form validation 
 </p>
 <h3>Roadblocks</h3>
 <p>
