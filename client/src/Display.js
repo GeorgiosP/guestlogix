@@ -73,7 +73,7 @@ state = {
     else{
       
      this.state.sheetData != 0 ? this.state.sheetData.data.values.push(this.props.data) : "wait"
-     console.log(this.state)
+     console.log(this.state.sheetData)
       
     }
   }
