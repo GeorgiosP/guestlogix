@@ -9,7 +9,8 @@
     "react-router-dom": "^4.2.2",
     "react-router-native": "^4.2.0",
     "react-scripts": "1.0.14",
-    "styled-components": "^2.2.1"
+    "styled-components": "^2.2.1",
+    "validator": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
