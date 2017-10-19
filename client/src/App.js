@@ -4,14 +4,18 @@ import GridComponent from "./components/GridComponent/"
 import Header from './components/HeaderComponent'
 import Main from './Main'
 
-
-  
-  const App = () => (
+class App extends Component{
+state = {
+  newAirport: {}
+}
+  render(){ 
+    return(
     <div>
       <Header />
-      <Main />
+      <Main data={this.state.newAirport} />
     </div>
-  )
+    )
+  }
   
-
+}
 export default App;

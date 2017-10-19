@@ -4,7 +4,9 @@ import loadingIcon from '../../assets/images/loading.gif'
 
 class GridComponent extends Component {
 
+componentDidUpdate(){
 
+}
   render() {
 
 //    if(loading){
@@ -23,7 +25,7 @@ class GridComponent extends Component {
             </thead>
             <tbody>
                 
-               {this.props.data != undefined ? this.props.data.values.map((row, index) => <tr key={index}> {row.map(column => <td>{column}</td>)}</tr>) : <th>Loading</th>}
+               {this.props.data != undefined ? this.props.data.values.map((row, index) => <tr key={index}>{row.map((column,index) => <td key={index}>{column}</td>)}</tr>) : <tr><td>Loading</td></tr>}
                         
             </tbody>
         </table>

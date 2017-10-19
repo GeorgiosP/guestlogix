@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import GridComponent from "./components/GridComponent/";
 import "./App.css";
 import {FormFlex} from './styles'
+import {Redirect} from 'react-router'
 
 class AddContainer extends Component {
     state = {
@@ -13,9 +14,35 @@ class AddContainer extends Component {
         IATA3:'',
         IATA4:'',
         latitute:'',
-        longitude:''
+        longitude:'',
+
+        fireChange: false 
     }
-    
+    onSubmit = (event, data) =>{
+        event.preventDefault()
+        
+        const{ 
+        id,
+        name,
+        city,
+        country,
+        IATA3,
+        IATA4,
+        latitute,
+        longitude} = this.state
+
+        this.props.onSubmit({
+            id,
+            name,
+            city,
+            country,
+            IATA3,
+            IATA4,
+            latitute,
+            longitude
+        })
+        this.setState({fireChange: true})
+    }
     handleChange = event => {
         
         this.setState({ [event.target.name]: event.target.value })
@@ -34,18 +61,18 @@ class AddContainer extends Component {
 
           }
           console.log(data)
-          fetch(API_URL + "/" + SPREADSHEET_ID + "/values"+ "/Airports!A1:H1:append?valueInputOption=RAW" + "?key=" + API_KEY, {
-              credentials: {API_KEY},
-              method: "POST",
-              body: data
-          })
+        //   fetch(API_URL + "/" + SPREADSHEET_ID + "/values"+ "/Airports!A1:H1:append?valueInputOption=RAW" + "?key=" + API_KEY, {
+        //       credentials: {API_KEY},
+        //       method: "POST",
+        //       body: data
+        //   })
       }
   render() {
 
     return(
       
     <div style={{display:'flex',justifyContent:'center'}}>
-      <FormFlex>
+      <FormFlex onSubmit={this.onSubmit}>
     
       <label>
           Id:
@@ -86,7 +113,7 @@ class AddContainer extends Component {
         </label>
           
           <input type="text" name="longitude" value={this.state.longitude} onChange={this.handleChange} />
-        <button onClick={this.test}>Submit</button>
+          <button>Submit</button> 
     </FormFlex>
       
     </div>

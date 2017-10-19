@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FormFlex = styled.div`
+export const FormFlex = styled.form`
     display: flex;
     justify-content: center;
     flex-flow: column;
