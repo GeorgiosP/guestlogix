@@ -35,13 +35,14 @@ state = {
            }
           
            )
-           fetch(API_URL + "/" + SPREADSHEET_ID + "/" + "values/"+ sheetTitle +"!A1:H"+ numberOfRows +"/" + "?key=" + API_KEY)
-           .then(res => res.json())
-           .then(data=>{
-             this.setState({sheetData:{data}})
-           })
-           .then(this.checkNewData)
-      });
+          return fetch(API_URL + "/" + SPREADSHEET_ID + "/" + "values/"+ sheetTitle +"!A1:H"+ numberOfRows +"/" + "?key=" + API_KEY)
+           
+      })
+      .then(res => res.json())
+      .then(data=>{
+        this.setState({sheetData:{data}})
+      })
+      .then(this.checkNewData)
   };
   isEmpty = (obj) => {
       // null and undefined are "empty"
