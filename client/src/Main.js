@@ -13,8 +13,11 @@ class Main extends Component {
     data: []
   };
   handleResponse = response => {
-    this.state.data.push(
-      response.id,
+    console.log(response)
+    this.setState(() => {
+      return{
+      data:
+      [response.id,
       response.name,
       response.city,
       response.country,
@@ -22,7 +25,9 @@ class Main extends Component {
       response.IATA4,
       response.latitute,
       response.longitude
-    );
+      ]
+      }
+    });
 
     console.log(this.state.data)
   };
